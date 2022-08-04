@@ -1,5 +1,4 @@
 const Service = require('egg').Service;
-const CryptoJS = require("crypto-js");
 
 class LeDuoService extends Service {
 
