@@ -1,5 +1,5 @@
 # 使用node镜像
-FROM daocloud.io/library/node:14.6
+FROM node:slim
 # 在容器中新建一个目录 egg
 RUN mkdir -p /egg
 # 将 /egg 设置为默认的工作目录
