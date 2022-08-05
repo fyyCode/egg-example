@@ -16,4 +16,4 @@ COPY . /egg
 EXPOSE 7001
 #等待 node 容器启动之后，再执行start命令
 # CMD 是等容器启动完毕之后再执行 RUN是立即执行
-CMD npm run dev
+CMD npm run start

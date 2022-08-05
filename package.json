@@ -9,7 +9,7 @@
   "dependencies": {
     "crypto-js": "^4.1.1",
     "egg": "^2",
-    "egg-scripts": "^2",
+    "egg-scripts": "^2.17.0",
     "puppeteer": "^16.0.0",
     "sync-request": "^6.1.0"
   },
