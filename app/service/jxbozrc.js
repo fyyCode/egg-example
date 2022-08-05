@@ -4,8 +4,9 @@ var CryptoJS = require("crypto-js");
 class BozrcService extends Service {
 
     async parse(url) {
-        const result = await fetch('https://jx.bozrc.com:4433/player/analysis.php?v='+url)
-        const html = await result.text();
+        const result = await this.ctx.curl('https://jx.bozrc.com:4433/player/analysis.php?v='+url,{dataType:'text'})
+        const html =  result.data;
+
 
         var regsp = '"url": "(.*?)"';
         var regsp2 = 'name="viewport".*?id="vod_(.*?)">';
@@ -13,6 +14,8 @@ class BozrcService extends Service {
         var urlt = html.match(regsp)[1];
         var viewport_id  = html.match(regsp2)[1];
         var uft8_id  = html.match(regsp3)[1];
+
+        console.log(jsreverse(viewport_id,uft8_id))
 
         const data = jsse(urlt,jsreverse(viewport_id,uft8_id),true);
 

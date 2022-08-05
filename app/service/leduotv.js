@@ -3,9 +3,8 @@ const Service = require('egg').Service;
 class LeDuoService extends Service {
 
     async parse(url) {
-        const result = await fetch('https://api.leduotv.com/wp-api/ifrgf.php?isDp=1&vid='+url)
-        const html = await result.text();
-        console.log(html)
+        const result = await this.ctx.curl('https://api.leduotv.com/wp-api/ifrgf.php?isDp=1&vid='+url,{dataType:'text'});
+        const html = result.data;
 
         var regsp = "var url1='(.*?)'";
         var urlt = html.match(regsp)[1];

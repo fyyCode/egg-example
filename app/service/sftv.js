@@ -4,9 +4,9 @@ class SfTvService extends Service {
 
     async parse(url) {
         
-        const result = await fetch('https://sf.sftv.ml/player/analysis.php?v='+url)
+        const result = await this.ctx.curl('https://sf.sftv.ml/player/analysis.php?v='+url,{dataType:'text'});
 
-        const html = await result.text();
+        const html =  result.data;
 
 
         var regsp = '"url": "(.*?)"';
