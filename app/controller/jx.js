@@ -23,7 +23,7 @@ class JxController extends Controller {
     }
     if(res.data == ''){
       res.message =  '解析失败';
-      res.status =  404;
+      res.code =  404;
     }
     ctx.body = res;
   }

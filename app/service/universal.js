@@ -21,7 +21,7 @@ class UniverSalService extends Service {
         return {
             message : '解析成功',
             data : data,
-            status: 200
+            code: 200
          };
     }
 }
