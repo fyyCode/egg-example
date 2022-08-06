@@ -20,6 +20,8 @@ class JxController extends Controller {
         res = await this.ctx.service.universal.parse(url);
     }else if('sf.sftv' == site){
       res = await this.ctx.service.sftv.parse(url);
+    }else if('4kan' == site){
+      res = await this.ctx.service.kan4.parse(url);
     }
     if(res.data == ''){
       res.message =  '解析失败';

@@ -11,7 +11,7 @@ class UniverSalService extends Service {
             const page = await browser.newPage();
             
             await page.goto(url);
-            const finalRequest = await page.waitForRequest(request => request.url().indexOf(".mp4")!=-1 && request.method() === 'GET');
+            const finalRequest = await page.waitForRequest(request => request.url().indexOf(".mp4")!=-1);
             data = finalRequest.url();
             await browser.close();
           }catch(error){
