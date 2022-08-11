@@ -10,10 +10,12 @@ class UniverSalService extends Service {
             const browser = await puppeteer.launch();
             const page = await browser.newPage();
             
-            await page.goto(url);
-            const finalRequest = await page.waitForRequest(request => request.url().indexOf(".mp4")!=-1);
-            data = finalRequest.url();
-            await browser.close();
+            // await page.goto(url);
+            // const finalRequest = await page.waitForRequest(request => request.url().indexOf(".mp4")!=-1);
+            // data = finalRequest.url();
+            await page.setRequestInterception(true);
+            page.on('request', request => console.log(request.url()));
+     
           }catch(error){
             throw error;
           }

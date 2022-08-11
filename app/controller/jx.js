@@ -26,10 +26,16 @@ class JxController extends Controller {
       res = await this.ctx.service.zhouff.parse(url);
     }else if('icu' == site){
       res = await this.ctx.service.icu.parse(url);
+    }else if('iztyy' == site){
+      res = await this.ctx.service.iztyy.parse(url);
+    }else if('jhdyw' == site){
+      res = await this.ctx.service.jhdyw.parse(url);
     }
-    if(res.data == ''){
+    if(!res.data){
       res.message =  '解析失败';
       res.code =  404;
+    }else{
+      res.url = res.data;
     }
     ctx.body = res;
   }
